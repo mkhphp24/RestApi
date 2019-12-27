@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Model\Product;
+use Exception;
 
 class PutController
 {
@@ -23,7 +24,8 @@ class PutController
         $attributes['id'] = $this->dataput['id'] ?? null;
 
         $check=$product->update(['name' => $attributes['name'], 'cost' => $attributes['cost'], 'location' =>  $attributes['location'], 'id' =>  $attributes['id']]);
-        if( $check ) return "success";
-        else return "unsuccess";
+
+        if( $check===true ) return "success";
+        else   {throw new Exception("Cannot Update Data ");}
     }
 }

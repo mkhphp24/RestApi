@@ -19,7 +19,7 @@ class DB
     {
         $config = require __DIR__ . '/../config.php';
         try {
-            $this->pdo = new \PDO("mysql:host=127.0.0.1;dbname={$config['db']['database']}",$config['db']['username'] , $config['db']['password']);
+            $this->pdo = new \PDO("mysql:host={$config['db']['host']};dbname={$config['db']['database']}",$config['db']['username'] , $config['db']['password']);
         } catch (\Exception $e) {
             die('Error : ' . $e->getMessage());
         }

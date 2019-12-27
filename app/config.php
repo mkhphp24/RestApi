@@ -2,8 +2,9 @@
 
 return [
     'db' => [
-        'database' => 'service',
+        'host'=>'mysqldb',
+        'database' => 'test',
         'username' => 'root',
-        'password' => '123456'
+        'password' => 'root'
     ]
 ];

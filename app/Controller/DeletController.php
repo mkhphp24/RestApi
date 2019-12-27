@@ -4,6 +4,8 @@
 namespace App\Controller;
 
 use App\Model\Product;
+use Exception;
+
 class DeletController
 {
     private $idGet;
@@ -16,7 +18,7 @@ class DeletController
         $product=new Product();
         $check=$product->delete($this->idGet);
         if( $check ) return "success";
-        else return "unsuccess";
+        else    {throw new Exception("Cannot Delete Data ");}
     }
 
 

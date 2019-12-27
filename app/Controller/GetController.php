@@ -3,7 +3,7 @@
 
 namespace App\Controller;
 use App\Model\Product;
-
+use Exception;
 class GetController
 {
     private $idGet;
@@ -16,8 +16,12 @@ class GetController
     public  function returnData(){
         $product=new Product();
         $check=$product->find('id',$this->idGet);
-        if( $check ) return $check;
-        else return "Error";
+
+        if ($check) {
+            return $check;
+        }
+        else   {throw new Exception("Cannot fetch data due to an error");}
+
 
     }
 }
